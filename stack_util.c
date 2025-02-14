@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_util.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taabu-fe <taabu-fe@student.42amman.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/14 15:28:00 by taabu-fe          #+#    #+#             */
+/*   Updated: 2025/02/14 15:28:01 by taabu-fe         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    add_node(t_node **a, int info)
+void    add_node_back(t_node **a, int info)
 {
     t_node *new;
     t_node *temp;
@@ -20,6 +32,17 @@ void    add_node(t_node **a, int info)
     else
         *a = new;
 }
+void    add_node_front(t_node **a, t_node *node_to_add)
+{
+    t_node  *A;
+
+    if (!node_to_add)
+        return ;
+    A = *a;
+    node_to_add->next = A;
+    *a = node_to_add;
+
+}
 
 void    init_stack(int argc, char **argv, t_node **a)
 {
@@ -28,7 +51,7 @@ void    init_stack(int argc, char **argv, t_node **a)
     i = 0;
     while (i < argc - 1)
     {
-        add_node(a, ft_atoi_push(argv[i + 1]));
+        add_node_back(a, ft_atoi_push(argv[i + 1]));
         i ++;
     }
 }

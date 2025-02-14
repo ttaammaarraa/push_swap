@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
-SRC = main.c checks.c command.c stack_util.c
+SRC = main.c checks.c command.c stack_util.c sort.c
 OBJECTS = $(SRC:.c=.o)
 LIBFT = ./libft
 NAME = push_swap
