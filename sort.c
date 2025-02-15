@@ -62,12 +62,12 @@ void	sort_util(t_node **stack_a)
 	if (pos <= size / 2)
 	{
 		while ((*stack_a)->info != value)
-			rotate(stack_a, "rra\n");
+			rotate(stack_a, "ra\n");
 	}
 	else
 	{
 		while ((*stack_a)->info != value)
-			reverse_rotate(stack_a, "ra\n");
+			reverse_rotate(stack_a, "rra\n");
 	}
 }
 
