@@ -6,84 +6,74 @@
 /*   By: taabu-fe <taabu-fe@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:27:35 by taabu-fe          #+#    #+#             */
-/*   Updated: 2025/02/14 15:30:48 by taabu-fe         ###   ########.fr       */
+/*   Updated: 2025/02/15 14:28:23 by taabu-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    swap(t_node **a, char *str)
+void	swap(t_node **a, char *str)
 {
-    t_node *A;
-    t_node *B;
-    
-    A = *a;
-    B = (*a)->next;
-    A->next = B->next;
-    B->next = A;
-    *a = B;
-    ft_putstr_fd(str, 1);
+	t_node	*aa;
+	t_node	*bb;
+
+	if (!a || !(*a) || !((*a)->next))
+		return ;
+	aa = *a;
+	bb = (*a)->next;
+	aa->next = bb->next;
+	bb->next = aa;
+	*a = bb;
+	ft_putstr_fd(str, 1);
 }
 
-void    rotate(t_node **a, char *str)
+void	rotate(t_node **a, char *str)
 {
-    t_node  *A;
-    t_node  *B;
+	t_node	*aa;
+	t_node	*bb;
 
-    B = *a;
-    A = *a;
-    while (B->next)
-    {
-        B = B->next;
-    }
-    *a = A->next;
-    B->next = A;
-    A->next = NULL;
-    ft_putstr_fd(str, 1);
+	if (!a || !(*a) || !((*a)->next))
+		return ;
+	bb = *a;
+	aa = *a;
+	while (bb->next)
+		bb = bb->next;
+	*a = aa->next;
+	bb->next = aa;
+	aa->next = NULL;
+	ft_putstr_fd(str, 1);
 }
 
-void    reverse_rotate(t_node **a, char *str)
+void	reverse_rotate(t_node **a, char *str)
 {
-    t_node  *B;
-    t_node  *C;
+	t_node	*bb;
+	t_node	*c;
 
-    B = *a;
-    C = *a;
-
-    while(B->next)
-    {
-        B = B->next;
-    }
-    while(C->next != B)
-        C = C->next;
-    B->next = *a;
-    C->next = NULL;
-    *a = B;
-    ft_putstr_fd(str, 1);
+	if (!a || !(*a) || !((*a)->next))
+		return ;
+	bb = *a;
+	c = *a;
+	while (bb->next)
+	{
+		bb = bb->next;
+	}
+	while (c->next != bb)
+		c = c->next;
+	bb->next = *a;
+	c->next = NULL;
+	*a = bb;
+	ft_putstr_fd(str, 1);
 }
 
-/* void    push(t_node **a, t_node **b, char *str)
+void	push(t_node **a, t_node **b, char *str)
 {
-    t_node *A;
-    t_node *B;
+	t_node	*aa;
 
-    A = *a;
-    B = *b;
-    *a = A->next;
-    A->next = B;
-    *b = A;
-    ft_putstr_fd(str, 1);
-} */
-
-void    push(t_node **a, t_node **b, char *str)
-{
-    t_node  *A;
-
-    if (!a)
-        return ;
-    A = *a;
-    *a = A->next;
-    A->next = NULL;
-    add_node_front(b, A);
-    ft_putstr_fd(str, 1);
+	if (!a || !(*a))
+		return ;
+	aa = *a;
+	*a = aa->next;
+	aa->next = NULL;
+	add_node_front(b, aa);
+	ft_putstr_fd(str, 1);
 }
