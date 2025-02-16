@@ -6,11 +6,17 @@
 /*   By: taabu-fe <taabu-fe@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:28:00 by taabu-fe          #+#    #+#             */
-/*   Updated: 2025/02/16 15:25:10 by taabu-fe         ###   ########.fr       */
+/*   Updated: 2025/02/16 16:28:22 by taabu-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(EXIT_FAILURE);
+}
 
 void	add_node_back(t_node **a, int info)
 {

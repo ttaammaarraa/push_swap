@@ -6,16 +6,17 @@
 /*   By: taabu-fe <taabu-fe@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:27:45 by taabu-fe          #+#    #+#             */
-/*   Updated: 2025/02/16 15:25:01 by taabu-fe         ###   ########.fr       */
+/*   Updated: 2025/02/16 16:28:45 by taabu-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(void)
+char	*remove_leading_zeros(char *str)
 {
-	ft_putstr_fd("Error\n", 2);
-	exit(EXIT_FAILURE);
+	while (*str == '0' && *(str + 1) != '\0')
+		str++;
+	return (str);
 }
 
 void	check_double(char **str)
@@ -29,7 +30,8 @@ void	check_double(char **str)
 		j = i + 1;
 		while (str[j])
 		{
-			if (ft_strcmp(str[i], str[j]) == 0)
+			if (ft_strcmp(remove_leading_zeros(str[i]),
+					remove_leading_zeros(str[j])) == 0)
 				error();
 			j++;
 		}
