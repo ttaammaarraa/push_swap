@@ -6,20 +6,11 @@
 /*   By: taabu-fe <taabu-fe@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 15:27:50 by taabu-fe          #+#    #+#             */
-/*   Updated: 2025/02/15 14:24:45 by taabu-fe         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:22:34 by taabu-fe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_list(t_node *a)
-{
-	while (a)
-	{
-		printf("%i\n", a->info);
-		a = a->next;
-	}
-}
 
 void	free_list(t_node **stack_a)
 {
